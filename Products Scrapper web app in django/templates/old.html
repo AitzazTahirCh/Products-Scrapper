@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Scrapper</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .left-box {
+            float: left;
+            height: auto;
+            width: 60%;
+        }
+        
+        .right-box {
+            float: left;
+            height: auto;
+            width: 40%;
+            padding-left: 90px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div class="form-group">
+          <label>URL</label>
+          <input type="text" class="url" id="url" name="url" placeholder="Enter URL">
+        </div>
+        {% comment %} <select class="select" name="select" id="select">
+            <option selected>Choose the website</option>
+            <option value="1">AliExpress</option>
+            <option value="2">Daraz</option>
+            <option value="3">MadeInChina</option>
+          </select> {% endcomment %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+<br>
+{% if data %}
+<div class="left-box">
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Object</th>
+        <th scope="col">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for x, y in data.items %}
+      <tr>
+        <th scope="row">#</th>
+        <td><b>{{x}}</b></td>
+        <td>{{y}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+{% if image %}
+<h3>Product Image:</h3>
+<div class="right-box">
+<img src={{image}} alt="Product Image" width="200" height="200">
+</div>
+{% endif %}
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
